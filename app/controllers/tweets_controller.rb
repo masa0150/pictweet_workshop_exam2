@@ -8,7 +8,7 @@ class TweetsController < ApplicationController
 
   def show
     @tweet = Tweet.find(params[:id])
-    @comments = @tweet.comments.includes(:user)
+    @comments = @tweets.comments.includes(:user)
   end
 
   def new
@@ -34,7 +34,7 @@ class TweetsController < ApplicationController
 
   private
   def tweet_params
-    params.permit(:image, :text)
+    params.permit(:images, :text)
   end
 
   def id_params
